@@ -7,7 +7,7 @@
 
     <!-- SEO & Metadata -->
     <meta name="description" content="Laam Token is a digital asset built on the Stellar network, with a fixed supply of 1,335,577 LAAM.">
-    <meta name="keywords" content="Laam, Laam Token, Stellar, Crypto, Digital Currency, Laam Coin">
+    <meta name="keywords" content="Laam, Laam Token, Stellar, Crypto, Digital Currency, Laam Coin, Whitepaper">
 
     <!-- Favicon & OG Image -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/r28SP1bN/20250802-225108.png">
@@ -21,31 +21,16 @@
     <style>
         /* ---- Animation Keyframes ---- */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* ---- General Styles ---- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -75,26 +60,19 @@
         }
         .logo {
             max-width: 120px;
-            height: auto;
             margin-bottom: 15px;
             transition: transform 0.3s ease;
         }
-        .logo:hover {
-            transform: scale(1.1);
-        }
+        .logo:hover { transform: scale(1.1); }
         .title {
             font-size: 3rem;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-        }
+        .subtitle { font-size: 1.2rem; color: #7f8c8d; }
 
         /* ---- Content Section ---- */
         .content-section {
@@ -114,19 +92,9 @@
             padding-bottom: 10px;
             text-align: center;
         }
-        .content-text p {
-            margin-bottom: 15px;
-            color: #555;
-            text-align: center;
-        }
-        .highlight {
-            color: #667eea;
-            font-weight: 600;
-        }
-        .stellar-highlight {
-            color: #764ba2;
-            font-weight: 600;
-        }
+        .content-text p { margin-bottom: 15px; color: #555; text-align: center; }
+        .highlight { color: #667eea; font-weight: 600; }
+        .stellar-highlight { color: #764ba2; font-weight: 600; }
 
         /* ---- Buttons ---- */
         .token-buttons {
@@ -154,14 +122,13 @@
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.25);
         }
-        .btn-wallet img {
-            width: 105px;
-            height: 105px;
-        }
-        .btn-explorer {
+        .btn-wallet img { width: 105px; height: 105px; }
+        
+        /* Style for the new Whitepaper button */
+        .btn-whitepaper {
             background: white;
             color: #2c3e50;
-            border: 2px solid #fbc02d;
+            border: 2px solid #2ecc71; /* Green border for whitepaper */
             padding: 12px 25px;
             border-radius: 28px;
             font-weight: 700;
@@ -170,10 +137,10 @@
             transition: all .25s ease;
             text-decoration: none;
         }
-        .btn-explorer:hover {
+        .btn-whitepaper:hover {
             background-color: #fdfdfd;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3); /* Green shadow on hover */
         }
 
         /* ---- Widgets ---- */
@@ -182,9 +149,7 @@
             animation: fadeInUp 0.8s ease-out 0.4s forwards;
             opacity: 0;
         }
-        .widget-wrapper {
-            margin-bottom: 30px;
-        }
+        .widget-wrapper { margin-bottom: 30px; }
         .widget-label {
             text-align: center;
             font-weight: bold;
@@ -202,10 +167,7 @@
             animation: fadeIn 1s ease-out 0.6s forwards;
             opacity: 0;
         }
-        .social-buttons a {
-            margin: 0 12px;
-            display: inline-block;
-        }
+        .social-buttons a { margin: 0 12px; display: inline-block; }
         .social-buttons img {
             width: 48px;
             height: 48px;
@@ -231,26 +193,15 @@
         
         /* ---- Responsive Design for Mobile ---- */
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
+            .container { padding: 15px; }
             .header, .content-section, .widgets-container, .social-buttons {
                 animation: none;
                 opacity: 1;
             }
-            .title {
-                font-size: 2.2rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-            }
-            .content-title {
-                font-size: 1.5rem;
-            }
-            .social-buttons img {
-                width: 40px;
-                height: 40px;
-            }
+            .title { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; }
+            .content-title { font-size: 1.5rem; }
+            .social-buttons img { width: 40px; height: 40px; }
         }
     </style>
     <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
@@ -271,12 +222,11 @@
             <div class="content-text">
                 <p><span class="highlight">Laam</span> is a native token built on the <span class="stellar-highlight">Stellar</span> network, designed to be a modern solution for digital currency. It has a fixed supply minted only once to preserve scarcity and long-term value.</p>
                 <div class="token-buttons">
-                    <!-- ✅ WALLET LINK UPDATED -->
                     <a href="https://wallet.laam.online/" target="_blank" rel="noopener" class="btn-wallet" aria-label="Open Laam Wallet">
                         <img src="https://i.ibb.co/JWB2sKtW/20250822-013938.png" alt="Wallet Icon">
                     </a>
-                    <a href="https://stellar.expert/explorer/public/asset/Laam-GAL4ECDAXNBMJYFCWIJ32HKVIRLCNEXY664CAZYI3EINQWPLXTMEPR64" target="_blank" rel="noopener" class="btn-explorer">
-                        Explorer
+                    <a href="https://whitepaper.laam.online/" target="_blank" rel="noopener" class="btn-whitepaper">
+                        Whitepaper
                     </a>
                 </div>
                 <p>Laam is an open project aimed at supporting real-world use cases such as property sales, vehicle rentals, and community-based commerce.</p>
@@ -296,18 +246,16 @@
             </div>
         </div>
 
-        <!-- SOCIAL MEDIA BUTTONS -->
+        <!-- ✅ SOCIAL MEDIA BUTTONS WITH PROVIDED LOGOS -->
         <div class="social-buttons">
             <a href="https://t.me/laamcoin" target="_blank" aria-label="Telegram">
-                <img src="https://i.ibb.co/bQdGf5J/telegram-logo.png" alt="Telegram Icon">
+                <img src="https://i.ibb.co/tPQZ1XN0/20250821-231616.jpg" alt="Telegram Icon">
             </a>
             <a href="https://www.instagram.com/laamcoin" target="_blank" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
-                </svg>
+                <img src="https://i.ibb.co/tPQZ1XN0/20250821-231616.jpg" alt="Instagram Icon">
             </a>
             <a href="https://youtube.com/@laamcoin" target="_blank" aria-label="YouTube">
-                <img src="https://i.ibb.co/yVzC8C8/youtube-logo.png" alt="YouTube Icon">
+                <img src="https://i.ibb.co/tPQZ1XN0/20250821-231616.jpg" alt="YouTube Icon">
             </a>
         </div>
 
@@ -323,4 +271,4 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
-  </html>
+</html>
