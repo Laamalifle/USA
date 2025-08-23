@@ -129,22 +129,29 @@
         }
         
         .btn-whitepaper {
-            background: white;
-            color: #2c3e50;
-            border: 2px solid #2ecc71;
-            padding: 12px 25px;
-            border-radius: 28px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 5px 14px rgba(0,0,0,.18);
-            transition: all .25s ease;
-            text-decoration: none;
-        }
-        .btn-whitepaper:hover {
-            background-color: #fdfdfd;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
-        }
+    background: white;
+    color: #2c3e50;
+    border: 2px solid #2ecc71;
+    padding: 12px 25px;
+    border-radius: 28px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 5px 14px rgba(0,0,0,.18);
+    transition: all .25s ease;
+    text-decoration: none;
+
+    /* Ku dar cabbir go’an */
+    display: inline-flex;          /* si icon-ka ama qoraalka u dhexgalo */
+    align-items: center;           /* vertically center */
+    justify-content: center;       /* horizontally center */
+    width: 80px;                  /* ballac */
+    height: 80px;                  /* dherer */
+}
+.btn-whitepaper:hover {
+    background-color: #fdfdfd;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+}
 
         /* ---- Widgets ---- */
         .widgets-container {
