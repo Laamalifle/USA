@@ -14,5 +14,13 @@
   ],
   "prefer_related_applications": false,
   "related_applications": [],
-  "scope_extensions": []
+  "scope_extensions": [],
+  "screenshots": [
+    {
+      "src": "/screenshots/screen1.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ],
+  "launch_handler": {}
 }
