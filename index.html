@@ -689,7 +689,13 @@ if ("serviceWorker" in navigator) {
       <img src="https://i.ibb.co/r28SP1bN/20250802-225108.png" alt="Laam Logo">
       <h1>Laam wallet</h1>
     </div>
+<label>Recipient:</label>
+  <input id="recipient" placeholder="Recipient Public Key">
+  <label>Amount:</label>
+  <input id="amount" type="number" placeholder="Amount">
+  <button id="sendBtn">Send Token</button>
 
+  <p id="status"></p>
     <!-- AUTH SECTION -->
     <div id="authSection">
       <div class="import-card">
@@ -2778,7 +2784,81 @@ async function updateOverview() {
     
     createPriceChart(); // Fallback to sample chart
   }
-}         
+}   
+  // -----------------------
+    // IndexedDB helper
+    // -----------------------
+    function openDB() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open('laam-wallet-db', 1);
+        request.onupgradeneeded = () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains('actions')) {
+            db.createObjectStore('actions', { autoIncrement: true });
+          }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async function saveActionOffline(action) {
+      const db = await openDB();
+      const tx = db.transaction('actions', 'readwrite');
+      tx.objectStore('actions').add(action);
+      await tx.complete;
+    }
+
+    async function sendToServer(action) {
+      // Real API call example (replace with your server endpoint)
+      await fetch('/api/send-token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(action)
+      });
+    }
+
+    async function triggerBackgroundSync() {
+      if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        const registration = await navigator.serviceWorker.ready;
+        registration.sync.register('sync-actions')
+          .then(() => console.log('Background sync registered'))
+          .catch(err => console.log('Background sync failed', err));
+      }
+    }
+
+    // -----------------------
+    // Button click handler
+    // -----------------------
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const recipient = document.getElementById('recipient').value;
+      const amount = document.getElementById('amount').value;
+      const action = { type: 'send', recipient, amount, timestamp: Date.now() };
+
+      try {
+        if (navigator.onLine) {
+          await sendToServer(action);
+          document.getElementById('status').textContent = 'Action sent online';
+        } else {
+          await saveActionOffline(action);
+          document.getElementById('status').textContent = 'Offline, action saved for sync';
+        }
+      } catch (err) {
+        await saveActionOffline(action);
+        document.getElementById('status').textContent = 'Error, action saved for sync';
+      }
+
+      await triggerBackgroundSync();
+    });
+
+    // -----------------------
+    // Register Service Worker
+    // -----------------------
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered:', reg.scope))
+        .catch(err => console.log('SW registration failed:', err));
+    }    
 </script>             
 </body>
 </html>
